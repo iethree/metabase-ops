@@ -34,6 +34,6 @@ jobs:
             --label "version release"
 
           gh issue create \
-            --title "Set cloud default version to ${{ inputs.version || github.event.client_payload.versions }}" \
+            --title "Set cloud default version to ${{ inputs.version || github.event.client_payload.version }}" \
             --body "please 😁" \
             --label "version release"
