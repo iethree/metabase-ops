@@ -1,5 +1,5 @@
 name: Create Cloud Release Issues
-run-name: Cloud Release issues for ${{ env.version }}
+run-name: Cloud Release issues for ${{ inputs.version || github.event.client_payload.version }}
 
 env:
   version: ${{ inputs.version || github.event.client_payload.version }}
