@@ -1,5 +1,8 @@
 name: Create Cloud Release Issues
-run-name: Cloud Release issues for ${{ inputs.version || github.event.client_payload.version }}
+run-name: Cloud Release issues for ${{ env.version }}
+
+env:
+  version: ${{ inputs.version || github.event.client_payload.version }}
 
 on:
   repository_dispatch:
@@ -29,11 +32,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: | # bash
           gh issue create \
-            --title "Update all cloud customers to ${{ inputs.version || github.event.client_payload.version }}" \
+            --title "Update all cloud customers to ${{ env.version }}" \
             --body "please 😁" \
             --label "version release"
 
           gh issue create \
-            --title "Set cloud default version to ${{ inputs.version || github.event.client_payload.version }}" \
+            --title "Set cloud default version to ${{ env.version }}" \
             --body "please 😁" \
             --label "version release"
